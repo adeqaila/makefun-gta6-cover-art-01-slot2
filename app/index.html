@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Vice Cover Club — GTA 6 Cover Art Maker</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 88 C20 62 8 44 8 30 C8 16 20 8 30 8 C40 8 47 14 50 20 C53 14 60 8 70 8 C80 8 92 16 92 30 C92 44 80 62 50 88Z' fill='%23ff5da2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">♥</span>
+    <div>
+      <h1>Little Vice Cover Club</h1>
+      <p class="tagline">Four photos, one sticker-sheet cover, exported as a PNG.</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button id="undo" type="button" class="ghost-btn">↩ Undo</button>
+    <button id="redo" type="button" class="ghost-btn">↪ Redo</button>
+  </div>
+</header>
+<main class="app">
+  <section class="preview-wrap" aria-label="Cover preview">
+    <canvas id="cover" width="1280" height="720" aria-label="The cover preview"></canvas>
+    <p id="selected-label" class="hint" role="status">Panel 1 selected — drag it to pan, use zoom below.</p>
+    <p id="status" class="hint" role="status"></p>
+  </section>
+  <aside class="controls" aria-label="Cover editor">
+    <section class="group">
+      <h2>Photos</h2>
+      <p class="note">Click a panel on the cover to pick it. Drag a panel to pan it.</p>
+      <div id="slot-list"></div>
+      <label class="field">Zoom selected panel
+        <span class="range-row">
+          <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1">
+          <output id="zoom-out">100%</output>
+        </span>
+      </label>
+    </section>
+    <section class="group">
+      <h2>Layout</h2>
+      <div id="layout-picks" class="picks"></div>
+    </section>
+    <section class="group">
+      <h2>Pastel grade</h2>
+      <div id="grade-picks" class="picks"></div>
+    </section>
+    <section class="group">
+      <h2>Words</h2>
+      <label class="field">Title
+        <input id="title" type="text" maxlength="24" value="LITTLE STARS">
+      </label>
+      <label class="field">Title style</label>
+      <div id="style-picks" class="picks"></div>
+      <label class="field">Speech-bubble tagline
+        <input id="tagline" type="text" maxlength="24" value="Little Vice">
+      </label>
+      <label class="field">Badge
+        <input id="badge" type="text" maxlength="10" value="CUTE">
+      </label>
+      <label class="field">Cute meter
+        <span class="range-row">
+          <input id="cute" type="range" min="1" max="5" step="1" value="5">
+          <output id="cute-out">♥♥♥♥♥</output>
+        </span>
+      </label>
+    </section>
+    <section class="group">
+      <h2>Finish</h2>
+      <label class="check"><input id="grain" type="checkbox" checked> Film grain</label>
+      <label class="check"><input id="vignette" type="checkbox" checked> Soft vignette</label>
+      <label class="check"><input id="halftone" type="checkbox" checked> Halftone title band</label>
+      <label class="check"><input id="confetti" type="checkbox" checked> Pastel confetti</label>
+    </section>
+    <section class="group">
+      <h2>Export PNG</h2>
+      <div id="export-picks" class="picks export-picks"></div>
+      <p class="note">Runs fully offline — your photos never leave this machine.</p>
+    </section>
+  </aside>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
